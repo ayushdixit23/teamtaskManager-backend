@@ -9,6 +9,7 @@ import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
 import compression from "compression";
+import cookieParser from "cookie-parser";
 import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import { rateLimit } from "express-rate-limit";
 import routes from "./routes/index.js";
@@ -44,6 +45,9 @@ const createApp = (): express.Application => {
   // Body parsing middleware
   app.use(express.json({ limit: "10mb" }));
   app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+
+  // Cookie parser middleware
+  app.use(cookieParser());
 
   // CORS configuration
   app.use(
