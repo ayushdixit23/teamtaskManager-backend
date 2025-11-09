@@ -1,0 +1,7 @@
+{
+    "dev": {
+        "databaseUrl": "${DATABASE_URL}",
+        "dir": "./src/migrations",
+        "migrationsTable": "pgmigrations"
+    }
+}
