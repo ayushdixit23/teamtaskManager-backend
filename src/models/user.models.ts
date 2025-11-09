@@ -20,7 +20,13 @@ export default class User {
         return result.rows[0];
     }
 
-
+    static async findById(id: number) {
+        const result = await pool.query(
+            `SELECT id, name , email, image_url FROM users WHERE id = $1`,
+            [id]
+        );
+        return result.rows[0];
+    }
     static async findAll() {
         const result = await pool.query("SELECT * FROM users")
         return result.rows[0];

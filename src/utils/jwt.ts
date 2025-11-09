@@ -1,7 +1,7 @@
 import jwt, { SignOptions } from "jsonwebtoken";
 import { JWT_SECRET } from "../config/env.js";
 
-interface JWTData {
+export interface JWTData {
   id: number;
   email: string;
   name: string;

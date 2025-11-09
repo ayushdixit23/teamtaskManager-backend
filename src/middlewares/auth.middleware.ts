@@ -15,6 +15,6 @@ export const authMiddleware = asyncHandler(async (req, res, next) => {
         throw new ErrorResponse("Invalid or expired token", 401);
     }
 
-    (req as any).user = decoded;
+    req.user = decoded;
     next();
 }); 
