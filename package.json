@@ -8,9 +8,10 @@
     "dev": "nodemon --exec tsx src/index.ts",
     "build": "tsc",
     "clean": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo",
-    "migrate:create": "node-pg-migrate create -j sql -m ./src/migrations",
-    "migrate": "node-pg-migrate up -j sql -m ./src/migrations",
-    "migrate:down": "node-pg-migrate down -j sql -m ./src/migrations"
+    "migrate:create": "db-migrate create -e dev --sql-file -m ./src/migrations",
+    "migrate": "db-migrate up -e dev -m ./src/migrations",
+    "migrate:down": "db-migrate down -e dev -m ./src/migrations",
+    "migrate:reset": "db-migrate reset -e dev -m ./src/migrations"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +27,6 @@
     "@types/morgan": "^1.9.10",
     "@types/node": "^24.9.2",
     "@types/pg": "^8.15.6",
-    "node-pg-migrate": "^8.0.3",
     "nodemon": "^3.1.10",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"
@@ -42,6 +42,8 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.1",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "db-migrate": "^1.0.0-beta.20",
+    "db-migrate-pg": "^1.5.0"
   }
 }

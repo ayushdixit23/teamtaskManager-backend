@@ -1,7 +1,14 @@
 {
     "dev": {
-        "databaseUrl": "${DATABASE_URL}",
-        "dir": "./src/migrations",
-        "migrationsTable": "pgmigrations"
-    }
+        "driver": "pg",
+        "host": "localhost",
+        "port": 5432,
+        "database": "collabsphere",
+        "user": "ayushdixit23",
+        "password": "ayushdixit23",
+        "schema": "public"
+    },
+    "sql-file": true,
+    "migrations-dir": "./src/migrations",
+    "dir": "./src/migrations"
 }

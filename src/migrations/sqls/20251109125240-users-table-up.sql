@@ -1,4 +1,4 @@
--- Up Migration
+/* Replace with your SQL commands */
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -8,6 +8,3 @@ CREATE TABLE users (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     image_url VARCHAR(255) DEFAULT NULL
 );
-
--- Down Migration
-DROP TABLE users;
