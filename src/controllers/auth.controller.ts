@@ -68,7 +68,6 @@ export const login = asyncHandler(async (req, res) => {
     },
     token: accessToken,
   }
-  res.clearCookie("refreshToken", { httpOnly: true, secure: NODE_ENV === "production" });
   res.cookie("refreshToken", refreshToken, { httpOnly: true, secure: NODE_ENV === "production", maxAge: JWT_REFRESH_TOKEN_EXPIRY_MS });
   return new SuccessResponse("Login successful", responseData, 200).send(res);
 });
