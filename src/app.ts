@@ -24,7 +24,7 @@ const createApp = (): express.Application => {
 
   // Security middleware - must be first
   app.use(helmet());
-
+  
   // Rate limiting middleware
   const limiter = rateLimit({
     windowMs: RATE_LIMIT_WINDOW_MS,
