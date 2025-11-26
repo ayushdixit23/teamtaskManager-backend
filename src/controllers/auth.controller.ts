@@ -76,7 +76,7 @@ export const login = asyncHandler(async (req, res) => {
     path: "/",
     maxAge: JWT_REFRESH_TOKEN_EXPIRY_MS,
   });
-  
+
   return new SuccessResponse("Login successful", responseData, 200).send(res);
 });
 
@@ -114,7 +114,9 @@ export const refreshToken = asyncHandler(async (req, res) => {
 
   res.cookie("refreshToken", newRefreshToken, {
     httpOnly: true,
-    secure: NODE_ENV === "production",
+    sameSite: "none",
+    secure: true,
+    path: "/",
     maxAge: JWT_REFRESH_TOKEN_EXPIRY_MS,
   });
   return new SuccessResponse("Refresh token successful", {
